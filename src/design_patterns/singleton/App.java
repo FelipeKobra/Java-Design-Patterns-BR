@@ -1,4 +1,8 @@
-package designpatterns.singleton;
+/*
+ * Caso você deseje apenas uma instância universal para uma classe
+ */
+
+package design_patterns.singleton;
 
 public class App {
     public static void main(String[] args) {

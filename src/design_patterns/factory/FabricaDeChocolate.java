@@ -1,4 +1,4 @@
-package designpatterns.factory;
+package design_patterns.factory;
 
 class FabricaDeChocolate extends Fabrica {
 

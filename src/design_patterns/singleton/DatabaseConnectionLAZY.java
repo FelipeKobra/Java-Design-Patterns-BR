@@ -1,12 +1,14 @@
-package designpatterns.singleton;
+package design_patterns.singleton;
 
-enum DatabaseConnectionENUM {
+class DatabaseConnectionLAZY {
 
-    INSTANCE;
+    private static DatabaseConnectionLAZY INSTANCE = null;
 
     private String connectionString;
     private String user;
     private int port;
+
+    private DatabaseConnectionLAZY(){};
 
     // Setters
     public void setConnectionString(String connectionString) {
@@ -19,6 +21,16 @@ enum DatabaseConnectionENUM {
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    // Getters
+    public static DatabaseConnectionLAZY getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new DatabaseConnectionLAZY();
+            return INSTANCE;
+        } else {
+            return INSTANCE;
+        }
     }
 
     @Override

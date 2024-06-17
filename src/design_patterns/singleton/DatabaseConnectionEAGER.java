@@ -1,14 +1,15 @@
-package designpatterns.singleton;
+package design_patterns.singleton;
 
-class DatabaseConnectionLAZY {
+class DatabaseConnectionEAGER {
 
-    private static DatabaseConnectionLAZY INSTANCE = null;
+    public static final DatabaseConnectionEAGER INSTANCE = new DatabaseConnectionEAGER();
 
     private String connectionString;
     private String user;
     private int port;
 
-    private DatabaseConnectionLAZY(){};
+    private DatabaseConnectionEAGER() {
+    };
 
     // Setters
     public void setConnectionString(String connectionString) {
@@ -23,19 +24,10 @@ class DatabaseConnectionLAZY {
         this.port = port;
     }
 
-    // Getters
-    public static DatabaseConnectionLAZY getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new DatabaseConnectionLAZY();
-            return INSTANCE;
-        } else {
-            return INSTANCE;
-        }
-    }
-
     @Override
     public String toString() {
         return "[connectionString=" + connectionString + ", user=" + user + ", port=" + port
                 + "]";
     }
+
 }

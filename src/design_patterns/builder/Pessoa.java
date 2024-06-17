@@ -1,4 +1,4 @@
-package designpatterns.builder;
+package design_patterns.builder;
 
 import java.time.LocalDate;
 
@@ -18,15 +18,17 @@ class Pessoa {
 
     public static class Builder {
 
-        String nome;
-        String raca;
-        int cpf;
-        LocalDate dataDeNascimento;
+        // Atributo(s) Obrigatório(s)
+        private final String nome;
 
-        public Builder setNome(String nome) {
+        public Builder(String nome) {
             this.nome = nome;
-            return this;
         }
+
+        // Atributo(s) Opcional(is)
+        private String raca;
+        private int cpf;
+        private LocalDate dataDeNascimento;
 
         public Builder setRaca(String raca) {
             this.raca = raca;
@@ -47,6 +49,26 @@ class Pessoa {
             return new Pessoa(nome, raca, cpf, dataDeNascimento);
         }
 
+        /*
+         * Esse método é utilizado caso:
+         * - Você não queira deixar o construtor público
+         * - Deixar o construtor mais seguro, já que só poderá ser criado à partir de um Builder
+         * - Não precisar escrever todos os parâmetros na ordem correta na criação de Pessoa
+         * 
+         * OBS: Lembre de deixar o construtor padrão privado.
+         */
+        
+        public Pessoa buildStrict() {
+            return new Pessoa(this);
+        }
+
+    }
+
+    private Pessoa(Builder builder) {
+        nome = builder.nome;
+        dataDeNascimento = builder.dataDeNascimento;
+        raca = builder.raca;
+        cpf = builder.cpf;
     }
 
     @Override

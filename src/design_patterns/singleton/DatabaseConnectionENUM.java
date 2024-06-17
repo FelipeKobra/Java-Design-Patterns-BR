@@ -1,15 +1,12 @@
-package designpatterns.singleton;
+package design_patterns.singleton;
 
-class DatabaseConnectionEAGER {
+enum DatabaseConnectionENUM {
 
-    public static final DatabaseConnectionEAGER INSTANCE = new DatabaseConnectionEAGER();
+    INSTANCE;
 
     private String connectionString;
     private String user;
     private int port;
-
-    private DatabaseConnectionEAGER() {
-    };
 
     // Setters
     public void setConnectionString(String connectionString) {
@@ -29,5 +26,4 @@ class DatabaseConnectionEAGER {
         return "[connectionString=" + connectionString + ", user=" + user + ", port=" + port
                 + "]";
     }
-
 }
