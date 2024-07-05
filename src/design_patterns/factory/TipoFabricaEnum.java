@@ -1,5 +1,0 @@
-package design_patterns.factory;
-
-enum TipoFabricaEnum {
-    ALIMENTICIA, ALIMENTICIA_SUPORTE, AUTOMOBILISTICA, AUTOMOBILISTICA_MARKETING;
-}
