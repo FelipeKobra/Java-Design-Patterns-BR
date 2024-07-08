@@ -1,3 +1,4 @@
-# Estudo em Java sobre:
+# Estudo em Java sobre
+
 - Design Patterns
 - Algoritmos de busca/ordenação.

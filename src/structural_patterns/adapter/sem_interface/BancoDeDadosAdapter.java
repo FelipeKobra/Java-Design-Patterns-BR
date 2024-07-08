@@ -1,29 +1,20 @@
-package structural_patterns.adapter;
+package structural_patterns.adapter.sem_interface;
 
 import java.util.List;
 
-public class BancoDeDadosAdapter extends BancoDeDadosDaApi {
+public class BancoDeDadosAdapter {
     BancoDeDados bancoDeDados;
-    int id;
-    float size;
-    String nome;
 
     BancoDeDadosAdapter(BancoDeDados bancoDeDados) {
         this.bancoDeDados = bancoDeDados;
     }
 
-    @Override
-    void getInfo() {
+    void sendApiInfo() {
         List<String> info = bancoDeDados.getInfo();
-        id = adaptarId(info.get(0));
-        nome = info.get(1);
-        size = adaptarSize(info.get(2));
-    }
+        int idAdaptado = adaptarId(info.get(0));
+        float sizeAdaptado = adaptarSize(info.get(2));
 
-    @Override
-    void sendInfo() {
-        getInfo();
-        super.sendInfo();
+        Api.sendInfo(idAdaptado, sizeAdaptado, info.get(1));
     }
 
     static private int adaptarId(String id) {
