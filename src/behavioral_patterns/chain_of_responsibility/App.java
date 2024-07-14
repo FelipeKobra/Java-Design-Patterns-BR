@@ -1,5 +1,4 @@
 /*
-
  * Objetivo
  * ------------
  * Esse design é muito utilizado quando você precisa criar uma cadeia de etapas.
@@ -22,6 +21,7 @@
  * adicionar manualmente Handler por Handler utilizando um método para isso, como um"createNext()", mas é trabalho
  * desnecessário e muito verboso
  * 7. Utilizar o método principal do Handler criado, que chamará a sequência caso tudo ocorra corretamente.
+ * 
  */
 
 package behavioral_patterns.chain_of_responsibility;
